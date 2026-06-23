@@ -1,0 +1,1 @@
+ALTER TABLE public.assessments ADD COLUMN IF NOT EXISTS reassessment_interval_months integer NOT NULL DEFAULT 3;

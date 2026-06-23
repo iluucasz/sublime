@@ -1,0 +1,126 @@
+{
+  "exported_at": "2026-06-19T19:15:07.255Z",
+  "total_rows": 16,
+  "tables": [
+    {
+      "table": "announcement_reads",
+      "rows": 0
+    },
+    {
+      "table": "announcement_replies",
+      "rows": 0
+    },
+    {
+      "table": "announcements",
+      "rows": 0
+    },
+    {
+      "table": "assessment_applications",
+      "rows": 0
+    },
+    {
+      "table": "assessment_items",
+      "rows": 0
+    },
+    {
+      "table": "assessment_results",
+      "rows": 0
+    },
+    {
+      "table": "assessments",
+      "rows": 0
+    },
+    {
+      "table": "case_studies",
+      "rows": 0
+    },
+    {
+      "table": "edit_audit_log",
+      "rows": 0
+    },
+    {
+      "table": "email_send_log",
+      "rows": 0
+    },
+    {
+      "table": "email_send_state",
+      "rows": 0
+    },
+    {
+      "table": "email_unsubscribe_tokens",
+      "rows": 0
+    },
+    {
+      "table": "goals",
+      "rows": 0
+    },
+    {
+      "table": "operators",
+      "rows": 0
+    },
+    {
+      "table": "patient_documents",
+      "rows": 0
+    },
+    {
+      "table": "patients",
+      "rows": 0
+    },
+    {
+      "table": "professionals",
+      "rows": 0
+    },
+    {
+      "table": "profiles",
+      "rows": 0
+    },
+    {
+      "table": "report_audit_log",
+      "rows": 0
+    },
+    {
+      "table": "report_section_signers",
+      "rows": 0
+    },
+    {
+      "table": "report_sections",
+      "rows": 0
+    },
+    {
+      "table": "report_signers",
+      "rows": 0
+    },
+    {
+      "table": "report_template_modules",
+      "rows": 0
+    },
+    {
+      "table": "report_templates",
+      "rows": 0
+    },
+    {
+      "table": "reports",
+      "rows": 0
+    },
+    {
+      "table": "specialties",
+      "rows": 13
+    },
+    {
+      "table": "suppressed_emails",
+      "rows": 0
+    },
+    {
+      "table": "therapy_grid",
+      "rows": 0
+    },
+    {
+      "table": "units",
+      "rows": 3
+    },
+    {
+      "table": "user_roles",
+      "rows": 0
+    }
+  ]
+}

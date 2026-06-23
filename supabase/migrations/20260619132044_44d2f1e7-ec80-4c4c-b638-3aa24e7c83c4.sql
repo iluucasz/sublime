@@ -1,0 +1,1 @@
+DELETE FROM report_template_modules WHERE id = '2eeee65f-14a3-467f-b0e9-e43acc67fe0a';

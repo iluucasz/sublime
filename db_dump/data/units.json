@@ -1,0 +1,26 @@
+[
+  {
+    "id": "35425b73-dc62-4b7d-8eca-1f7ee7cf1741",
+    "name": "São João de Meriti",
+    "address": null,
+    "phone": null,
+    "created_at": "2026-05-28T12:04:45.194971+00:00",
+    "updated_at": "2026-05-28T12:04:45.194971+00:00"
+  },
+  {
+    "id": "74d0f9d4-5b91-4dad-845a-16562c119ec4",
+    "name": "Laranjeiras",
+    "address": "Rua Marquesa de Santos, 16- Laranjeiras- Rio de Janeiro-Rj- CEP: 22221-080",
+    "phone": "",
+    "created_at": "2026-05-28T12:04:45.194971+00:00",
+    "updated_at": "2026-05-28T14:21:34.706514+00:00"
+  },
+  {
+    "id": "884078f7-cca1-478f-b2d5-ea0a333d23b4",
+    "name": "Flamengo",
+    "address": "Rua Machado de Assis, 20 - Casa- Flamengo- Rio de Janeiro-Rj CEP : 22220-060",
+    "phone": "2127521066",
+    "created_at": "2026-05-28T14:22:35.00168+00:00",
+    "updated_at": "2026-05-28T14:22:35.00168+00:00"
+  }
+]
