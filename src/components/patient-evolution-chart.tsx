@@ -93,7 +93,7 @@ export function PatientEvolutionChart({ patientId }: { patientId: string }) {
                     <YAxis tick={{ fontSize: 11 }} />
                     <Tooltip />
                     <Legend />
-                    <Line type="monotone" dataKey="value" stroke="hsl(var(--primary))" strokeWidth={2} name={label} />
+                    <Line type="monotone" dataKey="value" stroke="var(--primary)" strokeWidth={2} name={label} />
                   </LineChart>
                 </ResponsiveContainer>
               </div>

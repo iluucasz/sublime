@@ -142,12 +142,14 @@ function ImpressoesHub() {
   const fmt = (d?: string | null) => (d ? new Date(d).toLocaleDateString("pt-BR") : "—");
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       <div className="flex items-center gap-3">
-        <Printer className="h-6 w-6 text-primary" />
+        <div className="h-11 w-11 rounded-xl bg-primary/10 text-primary grid place-items-center shrink-0">
+          <Printer className="h-6 w-6" />
+        </div>
         <div>
-          <h1 className="text-2xl font-bold">Impressões</h1>
-          <p className="text-sm text-muted-foreground">
+          <h1 className="text-3xl font-bold tracking-tight text-primary">Impressões</h1>
+          <p className="text-[0.95rem] text-muted-foreground">
             Monte documentos personalizados: escolha o relatório, defina o que deve aparecer e gere a versão para imprimir ou enviar.
           </p>
         </div>
@@ -155,12 +157,12 @@ function ImpressoesHub() {
 
       <Card className="p-4 grid grid-cols-1 md:grid-cols-5 gap-3">
         <div className="md:col-span-2 relative">
-          <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+          <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground pointer-events-none" />
           <Input
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Buscar por paciente ou título"
-            className="pl-8"
+            className="pl-10"
           />
         </div>
         <Select value={unitId} onValueChange={setUnitId}>
@@ -210,15 +212,15 @@ function ImpressoesHub() {
               const complete = total > 0 && done === total;
               const released = r.status === "aprovado_diretoria" || r.status === "liberado_pais";
               return (
-                <li key={r.id} className="p-4 flex flex-col md:flex-row md:items-center justify-between gap-3 hover:bg-muted/30">
+                <li key={r.id} className="p-5 flex flex-col md:flex-row md:items-center justify-between gap-3 hover:bg-muted/40 transition-colors">
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="font-medium truncate">{r.title}</span>
-                      <Badge variant="outline" className="text-[10px]">{statusLabel(r.status)}</Badge>
+                      <span className="font-semibold text-[0.98rem] truncate">{r.title}</span>
+                      <Badge variant="outline" className="text-[11px]">{statusLabel(r.status)}</Badge>
                       {total > 0 ? (
                         <Badge
                           variant={complete ? "default" : "secondary"}
-                          className={`text-[10px] ${complete ? "bg-emerald-600 hover:bg-emerald-600" : ""}`}
+                          className={`text-[11px] ${complete ? "bg-emerald-600 hover:bg-emerald-600" : ""}`}
                         >
                           {complete ? (
                             <><CheckCircle2 className="h-3 w-3 mr-1" /> {done}/{total} áreas preenchidas</>
@@ -227,22 +229,22 @@ function ImpressoesHub() {
                           )}
                         </Badge>
                       ) : (
-                        <Badge variant="outline" className="text-[10px] border-amber-300 bg-amber-50 text-amber-800">
+                        <Badge variant="outline" className="text-[11px] border-amber-300 bg-amber-50 text-amber-800">
                           <AlertTriangle className="h-3 w-3 mr-1" /> Sem grade terapêutica
                         </Badge>
                       )}
                     </div>
-                    <div className="text-xs text-muted-foreground flex flex-wrap gap-x-3 mt-0.5">
-                      <span>{r.patients?.full_name ?? "—"}</span>
+                    <div className="text-[0.85rem] text-muted-foreground flex flex-wrap gap-x-3 mt-1.5">
+                      <span className="font-medium text-foreground/80">{r.patients?.full_name ?? "—"}</span>
                       {r.patients?.units?.name && <span>· {r.patients.units.name}</span>}
                       <span>· {fmt(r.period_start)} a {fmt(r.period_end)}</span>
                     </div>
                     {prog && (prog.pending.length > 0 || prog.filledList.length > 0) && (
-                      <div className="flex flex-wrap gap-1.5 mt-2">
+                      <div className="flex flex-wrap gap-2 mt-2.5">
                         {prog.filledList.map((s) => (
                           <span
                             key={`f-${s.id}`}
-                            className="inline-flex items-center gap-1 text-[10px] px-1.5 py-0.5 rounded border border-emerald-200 bg-emerald-50 text-emerald-700"
+                            className="inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded-md border border-emerald-200 bg-emerald-50 text-emerald-700"
                             title="Preenchido"
                           >
                             <span className="h-1.5 w-1.5 rounded-full" style={{ background: s.color ?? "#10b981" }} />
@@ -252,7 +254,7 @@ function ImpressoesHub() {
                         {prog.pending.map((s) => (
                           <span
                             key={`p-${s.id}`}
-                            className="inline-flex items-center gap-1 text-[10px] px-1.5 py-0.5 rounded border border-red-200 bg-red-50 text-red-700"
+                            className="inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded-md border border-red-200 bg-red-50 text-red-700"
                             title="Pendente"
                           >
                             <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -263,7 +265,7 @@ function ImpressoesHub() {
                     )}
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
-                    <Button asChild size="sm" variant={released ? "default" : "outline"}>
+                    <Button asChild variant={released ? "default" : "outline"}>
                       <Link to="/reports/$reportId/print" params={{ reportId: r.id }}>
                         {released ? (
                           <><Printer className="h-4 w-4 mr-1" /> Montar impressão</>

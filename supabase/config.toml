@@ -1,1 +1,8 @@
 project_id = "ajzwuvsxcwmtjeyxvtux"
+
+# ===== Edge functions do módulo Clinic Sync (IA via Lovable AI Gateway) =====
+[functions.generate-report]
+verify_jwt = true
+
+[functions.assistant-chat]
+verify_jwt = true

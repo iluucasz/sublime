@@ -22,7 +22,9 @@ import { Route as AuthenticatedOperatorsRouteImport } from './routes/_authentica
 import { Route as AuthenticatedMeuPerfilRouteImport } from './routes/_authenticated/meu-perfil'
 import { Route as AuthenticatedImpressoesRouteImport } from './routes/_authenticated/impressoes'
 import { Route as AuthenticatedGoalsRouteImport } from './routes/_authenticated/goals'
+import { Route as AuthenticatedDiaADiaRouteImport } from './routes/_authenticated/dia-a-dia'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedClinicSyncRouteImport } from './routes/_authenticated/clinic-sync'
 import { Route as AuthenticatedAssessmentsRouteImport } from './routes/_authenticated/assessments'
 import { Route as AuthenticatedAnnouncementsRouteImport } from './routes/_authenticated/announcements'
 import { Route as AuthenticatedPatientsIndexRouteImport } from './routes/_authenticated/patients.index'
@@ -103,9 +105,19 @@ const AuthenticatedGoalsRoute = AuthenticatedGoalsRouteImport.update({
   path: '/goals',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
+const AuthenticatedDiaADiaRoute = AuthenticatedDiaADiaRouteImport.update({
+  id: '/dia-a-dia',
+  path: '/dia-a-dia',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedClinicSyncRoute = AuthenticatedClinicSyncRouteImport.update({
+  id: '/clinic-sync',
+  path: '/clinic-sync',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
 const AuthenticatedAssessmentsRoute =
@@ -195,7 +207,9 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/announcements': typeof AuthenticatedAnnouncementsRoute
   '/assessments': typeof AuthenticatedAssessmentsRouteWithChildren
+  '/clinic-sync': typeof AuthenticatedClinicSyncRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/dia-a-dia': typeof AuthenticatedDiaADiaRoute
   '/goals': typeof AuthenticatedGoalsRoute
   '/impressoes': typeof AuthenticatedImpressoesRoute
   '/meu-perfil': typeof AuthenticatedMeuPerfilRoute
@@ -224,7 +238,9 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/announcements': typeof AuthenticatedAnnouncementsRoute
   '/assessments': typeof AuthenticatedAssessmentsRouteWithChildren
+  '/clinic-sync': typeof AuthenticatedClinicSyncRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/dia-a-dia': typeof AuthenticatedDiaADiaRoute
   '/goals': typeof AuthenticatedGoalsRoute
   '/impressoes': typeof AuthenticatedImpressoesRoute
   '/meu-perfil': typeof AuthenticatedMeuPerfilRoute
@@ -255,7 +271,9 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/_authenticated/announcements': typeof AuthenticatedAnnouncementsRoute
   '/_authenticated/assessments': typeof AuthenticatedAssessmentsRouteWithChildren
+  '/_authenticated/clinic-sync': typeof AuthenticatedClinicSyncRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/dia-a-dia': typeof AuthenticatedDiaADiaRoute
   '/_authenticated/goals': typeof AuthenticatedGoalsRoute
   '/_authenticated/impressoes': typeof AuthenticatedImpressoesRoute
   '/_authenticated/meu-perfil': typeof AuthenticatedMeuPerfilRoute
@@ -286,7 +304,9 @@ export interface FileRouteTypes {
     | '/login'
     | '/announcements'
     | '/assessments'
+    | '/clinic-sync'
     | '/dashboard'
+    | '/dia-a-dia'
     | '/goals'
     | '/impressoes'
     | '/meu-perfil'
@@ -315,7 +335,9 @@ export interface FileRouteTypes {
     | '/login'
     | '/announcements'
     | '/assessments'
+    | '/clinic-sync'
     | '/dashboard'
+    | '/dia-a-dia'
     | '/goals'
     | '/impressoes'
     | '/meu-perfil'
@@ -345,7 +367,9 @@ export interface FileRouteTypes {
     | '/login'
     | '/_authenticated/announcements'
     | '/_authenticated/assessments'
+    | '/_authenticated/clinic-sync'
     | '/_authenticated/dashboard'
+    | '/_authenticated/dia-a-dia'
     | '/_authenticated/goals'
     | '/_authenticated/impressoes'
     | '/_authenticated/meu-perfil'
@@ -474,11 +498,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedGoalsRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/_authenticated/dia-a-dia': {
+      id: '/_authenticated/dia-a-dia'
+      path: '/dia-a-dia'
+      fullPath: '/dia-a-dia'
+      preLoaderRoute: typeof AuthenticatedDiaADiaRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/clinic-sync': {
+      id: '/_authenticated/clinic-sync'
+      path: '/clinic-sync'
+      fullPath: '/clinic-sync'
+      preLoaderRoute: typeof AuthenticatedClinicSyncRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
     '/_authenticated/assessments': {
@@ -642,7 +680,9 @@ const AuthenticatedTemplatesRouteWithChildren =
 interface AuthenticatedRouteChildren {
   AuthenticatedAnnouncementsRoute: typeof AuthenticatedAnnouncementsRoute
   AuthenticatedAssessmentsRoute: typeof AuthenticatedAssessmentsRouteWithChildren
+  AuthenticatedClinicSyncRoute: typeof AuthenticatedClinicSyncRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedDiaADiaRoute: typeof AuthenticatedDiaADiaRoute
   AuthenticatedGoalsRoute: typeof AuthenticatedGoalsRoute
   AuthenticatedImpressoesRoute: typeof AuthenticatedImpressoesRoute
   AuthenticatedMeuPerfilRoute: typeof AuthenticatedMeuPerfilRoute
@@ -660,7 +700,9 @@ interface AuthenticatedRouteChildren {
 const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
   AuthenticatedAnnouncementsRoute: AuthenticatedAnnouncementsRoute,
   AuthenticatedAssessmentsRoute: AuthenticatedAssessmentsRouteWithChildren,
+  AuthenticatedClinicSyncRoute: AuthenticatedClinicSyncRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedDiaADiaRoute: AuthenticatedDiaADiaRoute,
   AuthenticatedGoalsRoute: AuthenticatedGoalsRoute,
   AuthenticatedImpressoesRoute: AuthenticatedImpressoesRoute,
   AuthenticatedMeuPerfilRoute: AuthenticatedMeuPerfilRoute,

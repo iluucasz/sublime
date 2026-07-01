@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card as HCard } from "@heroui/react";
 import { Users, HeartPulse, Building2, TrendingUp } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
 import subliminho from "@/assets/subliminho.png";
@@ -168,17 +169,17 @@ function DashboardPage() {
 
 function StatCard({ icon: Icon, label, value, accent }: { icon: any; label: string; value: number | string; accent: string }) {
   return (
-    <Card>
-      <CardContent className="flex items-center gap-4 pt-6">
-        <div className={`h-12 w-12 rounded-xl flex items-center justify-center ${accent}`}>
-          <Icon className="h-6 w-6" />
+    <HCard className="relative overflow-hidden border bg-card p-5 shadow-sm transition-shadow hover:shadow-md">
+      <div className="flex items-center gap-4">
+        <div className={`h-14 w-14 rounded-2xl flex items-center justify-center shadow-inner ${accent}`}>
+          <Icon className="h-7 w-7" />
         </div>
         <div>
-          <div className="text-3xl font-bold">{value}</div>
+          <div className="text-4xl font-bold tracking-tight text-primary">{value}</div>
           <div className="text-sm text-muted-foreground">{label}</div>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </HCard>
   );
 }
 

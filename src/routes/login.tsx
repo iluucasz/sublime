@@ -2,10 +2,8 @@ import { createFileRoute, useNavigate, Navigate } from "@tanstack/react-router";
 import { useState, useEffect, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-auth";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button, Card, Input } from "@heroui/react";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { toast } from "sonner";
 import logo from "@/assets/sublime-logo.png";
 import subliminho from "@/assets/subliminho.png";
@@ -99,14 +97,14 @@ function LoginPage() {
 
       <div className="flex items-center justify-center p-6">
         <Card className="w-full max-w-md shadow-lg">
-          <CardHeader className="text-center">
+          <Card.Header className="flex flex-col items-center text-center gap-1">
             <img src={logo} alt="Sublime" className="h-16 mx-auto mb-2 lg:hidden" />
-            <CardTitle className="text-2xl">{mode === "login" ? "Entrar" : "Criar conta"}</CardTitle>
-            <CardDescription>
+            <Card.Title className="text-2xl">{mode === "login" ? "Entrar" : "Criar conta"}</Card.Title>
+            <Card.Description>
               {mode === "login" ? "Acesse o ACT Sublime" : "Cadastre-se para começar"}
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
+            </Card.Description>
+          </Card.Header>
+          <Card.Content>
             <form onSubmit={onSubmit} className="space-y-4">
               {mode === "signup" && (
                 <>
@@ -164,18 +162,21 @@ function LoginPage() {
                 <Label htmlFor="password">Senha</Label>
                 <Input id="password" type="password" autoComplete={mode === "login" ? "current-password" : "new-password"} value={password} onChange={(e) => setPassword(e.target.value)} required minLength={6} />
               </div>
-              <Button type="submit" className="w-full" disabled={submitting}>
+              <Button type="submit" variant="primary" fullWidth isDisabled={submitting}>
                 {submitting ? "Aguarde…" : mode === "login" ? "Entrar" : "Criar conta"}
               </Button>
-              <button
+              <Button
                 type="button"
-                className="w-full text-sm text-muted-foreground hover:text-foreground"
-                onClick={() => setMode(mode === "login" ? "signup" : "login")}
+                variant="ghost"
+                fullWidth
+                size="sm"
+                className="text-muted-foreground"
+                onPress={() => setMode(mode === "login" ? "signup" : "login")}
               >
                 {mode === "login" ? "Não tem conta? Cadastre-se" : "Já tem conta? Entrar"}
-              </button>
+              </Button>
             </form>
-          </CardContent>
+          </Card.Content>
         </Card>
       </div>
     </div>
